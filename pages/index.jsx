@@ -1,8 +1,9 @@
-import { Button } from "@chakra-ui/button";
-import { useDisclosure } from "@chakra-ui/hooks";
-import { Image } from "@chakra-ui/image";
+import { HStack } from "@chakra-ui/layout";
+import { Divider } from "@chakra-ui/layout";
+import { Text } from "@chakra-ui/layout";
+import { Grid } from "@chakra-ui/layout";
+import { VStack } from "@chakra-ui/layout";
 import { Box, Flex } from "@chakra-ui/layout";
-import { Collapse } from "@chakra-ui/transition";
 import Head from "next/head";
 import ListItem from "../components/ListItem";
 
@@ -21,7 +22,6 @@ const Images = [
 ];
 
 export default function Home() {
-  const { isOpen, onToggle } = useDisclosure();
   return (
     <>
       <Head>
@@ -36,13 +36,23 @@ export default function Home() {
         overflow="hidden"
         minH="100vh"
       >
-        <Box bg="red" w="100%" h="20vh" maxH="128px"></Box>
+        <Grid bg="red" w="100%" h="20vh" maxH="128px" flexDir="column">
+          <Text
+            placeSelf="center"
+            color="white"
+            fontWeight="bold"
+            textAlign="center"
+            fontSize="24px"
+          >
+            CARNICERIA <br /> GONZALEZ
+          </Text>
+        </Grid>
 
-        <Box p="1rem">
+        <Flex p="1rem" w="100%" flexDir="column">
           {Images.map(({ title, path }, index) => (
-            <ListItem key={index} title={title} path={path} />
+            <ListItem key={index} title={title} path={path} index={index} />
           ))}
-        </Box>
+        </Flex>
       </Flex>
     </>
   );
