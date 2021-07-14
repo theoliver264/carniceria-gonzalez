@@ -1,3 +1,4 @@
+import { Image } from "@chakra-ui/image";
 import { HStack } from "@chakra-ui/layout";
 import { Divider } from "@chakra-ui/layout";
 import { Text } from "@chakra-ui/layout";
@@ -35,24 +36,37 @@ export default function Home() {
         maxW="100vw"
         overflow="hidden"
         minH="100vh"
+        bg="#eee"
       >
-        <Grid bg="red" w="100%" h="20vh" maxH="128px" flexDir="column">
-          <Text
+        <Grid
+          bg="rgb(226, 6, 19)"
+          w="100%"
+          h="20vh"
+          maxH="128px"
+          flexDir="column"
+        >
+          <Image
+            src="/img/logo.png"
+            alt="Carniceria Gonzalez"
             placeSelf="center"
-            color="white"
-            fontWeight="bold"
-            textAlign="center"
-            fontSize="24px"
-          >
-            CARNICERIA <br /> GONZALEZ
-          </Text>
+            maxH="128px"
+          />
         </Grid>
 
-        <Flex p="1rem" w="100%" flexDir="column">
+        <Grid
+          p="1rem"
+          w="100%"
+          templateRows={{
+            sm: "repeat(11, 1fr)",
+            md: "repeat(5,1fr)",
+            lg: "repeat(5,1fr)",
+          }}
+          templateColumns={{ sm: "auto", lg: "1fr 1fr" }}
+        >
           {Images.map(({ title, path }, index) => (
             <ListItem key={index} title={title} path={path} index={index} />
           ))}
-        </Flex>
+        </Grid>
       </Flex>
     </>
   );
