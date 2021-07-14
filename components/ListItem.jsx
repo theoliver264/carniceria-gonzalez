@@ -26,7 +26,7 @@ export default function ListItem({ title, path, index, icon }) {
     <>
       <Grid
         onClick={onOpen}
-        boxSize="150px"
+        boxSize={{ base: "150px", lg: "300px" }}
         p="1rem"
         boxShadow="lg"
         templateRows="auto 1fr"
@@ -34,7 +34,7 @@ export default function ListItem({ title, path, index, icon }) {
         borderRadius="8px"
         placeItems="center"
       >
-        <Icon boxSize="80px" color="black" as={icon} />
+        <Icon boxSize="80%" color="black" as={icon} />
         <Text
           color="#E20613"
           fontWeight="bold"
@@ -51,10 +51,19 @@ export default function ListItem({ title, path, index, icon }) {
         isCentered
       >
         <ModalOverlay />
-        <ModalContent>
+        <ModalContent bg="transparent" boxShadow="none">
           <ModalBody p="0">
-            <ModalCloseButton />
-            {!isLoaded && <Spinner />}
+            {isLoaded && <ModalCloseButton />}
+            {!isLoaded && (
+              <Flex boxSize="100%" flexDir="column" bg="transparent">
+                <Spinner
+                  color="red"
+                  boxSize="64px"
+                  placeSelf="center"
+                  thickness="8px"
+                />
+              </Flex>
+            )}
             <Image
               src={path}
               alt={title}

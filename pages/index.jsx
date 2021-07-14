@@ -65,26 +65,28 @@ export default function Home() {
           />
         </Grid>
 
-        <Grid
-          w="100%"
-          templateColumns="1fr 1fr"
-          gap="1rem"
-          placeItems="center"
-          maxW="90%"
-          m="0 auto"
-        >
-          {Images.map(({ title, path, icon }, index) => (
-            <ListItem
-              key={index}
-              title={title}
-              path={path}
-              icon={icon}
-              index={index}
-            />
-          ))}
-        </Grid>
+        <Box flex="1 0 auto">
+          <Grid
+            w="100%"
+            templateColumns={{ base: "1fr 1fr", lg: "repeat(5, 1fr)" }}
+            gap="1rem"
+            placeItems="center"
+            maxW="90%"
+            m="0 auto"
+          >
+            {Images.map(({ title, path, icon }, index) => (
+              <ListItem
+                key={index}
+                title={title}
+                path={path}
+                icon={icon}
+                index={index}
+              />
+            ))}
+          </Grid>
+        </Box>
 
-        <Box w="100%" h="128px" bg="red" placeSelf="flex-end"></Box>
+        <Box w="100%" h="128px" bg="#E20613" placeSelf="flex-end"></Box>
       </Flex>
     </>
   );
