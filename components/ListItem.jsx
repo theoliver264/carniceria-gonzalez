@@ -28,7 +28,14 @@ export default function ListItem({ title, path, index }) {
         borderLeft="1px solid red"
         {...(index == 10 && { borderBottom: "1px solid red" })}
       >
-        <Text>{title}</Text>
+        <Text
+          color="#E20613"
+          fontWeight="bold"
+          fontSize="18px"
+          textTransform="uppercase"
+        >
+          {title}
+        </Text>
         <Icon boxSize={5} color="red" as={AiFillCaretDown} />
       </Flex>
       <Collapse in={isOpen} animateOpacity>
