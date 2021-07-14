@@ -5,29 +5,36 @@ import { Image } from "@chakra-ui/image";
 import { Text } from "@chakra-ui/layout";
 import { Flex } from "@chakra-ui/layout";
 import { Box } from "@chakra-ui/layout";
+import {
+  Grid,
+  Modal,
+  ModalBody,
+  ModalCloseButton,
+  ModalContent,
+  ModalOverlay,
+} from "@chakra-ui/react";
 import { Spinner } from "@chakra-ui/spinner";
 import { Collapse } from "@chakra-ui/transition";
 import { useState } from "react";
 import { AiFillCaretDown } from "react-icons/ai";
 
-export default function ListItem({ title, path, index }) {
+export default function ListItem({ title, path, index, icon }) {
   const [isLoaded, setIsLoaded] = useState(false);
-  const { isOpen, onToggle } = useDisclosure();
+  const { isOpen, onClose, onOpen } = useDisclosure();
 
   return (
     <>
-      <Flex
-        onClick={onToggle}
-        w="100%"
-        flexDir="row"
+      <Grid
+        onClick={onOpen}
+        boxSize="150px"
         p="1rem"
-        justifyContent="space-between"
-        alignItems="center"
-        borderTop="1px solid red"
-        borderRight="1px solid red"
-        borderLeft="1px solid red"
-        {...(index == 10 && { borderBottom: "1px solid red" })}
+        boxShadow="lg"
+        templateRows="auto 1fr"
+        bg="white"
+        borderRadius="8px"
+        placeItems="center"
       >
+        <Icon boxSize="80px" color="black" as={icon} />
         <Text
           color="#E20613"
           fontWeight="bold"
@@ -36,19 +43,27 @@ export default function ListItem({ title, path, index }) {
         >
           {title}
         </Text>
-        <Icon boxSize={5} color="red" as={AiFillCaretDown} />
-      </Flex>
-      <Collapse in={isOpen} animateOpacity>
-        <Box p="8px" color="white" bg="gray.100" borderBottomRadius="8px">
-          {!isLoaded && <Spinner />}
-          <Image
-            src={path}
-            alt={title}
-            onLoad={() => setIsLoaded(true)}
-            {...(!isLoaded && { display: "none" })}
-          />
-        </Box>
-      </Collapse>
+      </Grid>
+      <Modal
+        isOpen={isOpen}
+        onClose={onClose}
+        scrollBehavior="inside"
+        isCentered
+      >
+        <ModalOverlay />
+        <ModalContent>
+          <ModalBody p="0">
+            <ModalCloseButton />
+            {!isLoaded && <Spinner />}
+            <Image
+              src={path}
+              alt={title}
+              onLoad={() => setIsLoaded(true)}
+              visibility={isLoaded ? "visible" : "hidden"}
+            />
+          </ModalBody>
+        </ModalContent>
+      </Modal>
     </>
   );
 }

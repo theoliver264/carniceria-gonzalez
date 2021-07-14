@@ -7,19 +7,30 @@ import { VStack } from "@chakra-ui/layout";
 import { Box, Flex } from "@chakra-ui/layout";
 import Head from "next/head";
 import ListItem from "../components/ListItem";
+import {
+  GiCow,
+  GiPig,
+  GiWaterBottle,
+  GiSausage,
+  GiMilkCarton,
+  GiCorn,
+  GiChicken,
+  GiTacos,
+} from "react-icons/gi";
+import { FiPackage } from "react-icons/fi";
+import { GoPlus } from "react-icons/go";
 
 const Images = [
-  { title: "Res", path: "/img/Res.jpg" },
-  { title: "Bebidas", path: "/img/Bebidas.jpg" },
-  { title: "Carnitas", path: "/img/Carnitas.jpg" },
-  { title: "Cerdo", path: "/img/Bebidas.jpg" },
-  { title: "Bebidas", path: "/img/Cerdo.jpg" },
-  { title: "Embutidos", path: "/img/Embutidos.jpg" },
-  { title: "Lacteos", path: "/img/Lacteos.jpg" },
-  { title: "Maiz", path: "/img/Maiz.jpg" },
-  { title: "Paquetes", path: "/img/Paquetes.jpg" },
-  { title: "Pollo", path: "/img/Pollo.jpg" },
-  { title: "Otros", path: "/img/Otros.jpg" },
+  { title: "Res", path: "/img/Res.jpg", icon: GiCow },
+  { title: "Bebidas", path: "/img/Bebidas.jpg", icon: GiWaterBottle },
+  { title: "Carnitas", path: "/img/Carnitas.jpg", icon: GiTacos },
+  { title: "Cerdo", path: "/img/Cerdo.jpg", icon: GiPig },
+  { title: "Embutidos", path: "/img/Embutidos.jpg", icon: GiSausage },
+  { title: "Lacteos", path: "/img/Lacteos.jpg", icon: GiMilkCarton },
+  { title: "Maiz", path: "/img/Maiz.jpg", icon: GiCorn },
+  { title: "Paquetes", path: "/img/Paquetes.jpg", icon: FiPackage },
+  { title: "Pollo", path: "/img/Pollo.jpg", icon: GiChicken },
+  { title: "Otros", path: "/img/Otros.jpg", icon: GoPlus },
 ];
 
 export default function Home() {
@@ -37,6 +48,7 @@ export default function Home() {
         overflow="hidden"
         minH="100vh"
         bg="#eee"
+        gridGap="2rem"
       >
         <Grid
           bg="rgb(226, 6, 19)"
@@ -54,19 +66,25 @@ export default function Home() {
         </Grid>
 
         <Grid
-          p="1rem"
           w="100%"
-          templateRows={{
-            sm: "repeat(11, 1fr)",
-            md: "repeat(5,1fr)",
-            lg: "repeat(5,1fr)",
-          }}
-          templateColumns={{ sm: "auto", lg: "1fr 1fr" }}
+          templateColumns="1fr 1fr"
+          gap="1rem"
+          placeItems="center"
+          maxW="90%"
+          m="0 auto"
         >
-          {Images.map(({ title, path }, index) => (
-            <ListItem key={index} title={title} path={path} index={index} />
+          {Images.map(({ title, path, icon }, index) => (
+            <ListItem
+              key={index}
+              title={title}
+              path={path}
+              icon={icon}
+              index={index}
+            />
           ))}
         </Grid>
+
+        <Box w="100%" h="128px" bg="red" placeSelf="flex-end"></Box>
       </Flex>
     </>
   );
