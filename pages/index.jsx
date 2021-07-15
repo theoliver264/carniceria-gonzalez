@@ -17,8 +17,9 @@ import {
   GiChicken,
   GiTacos,
 } from "react-icons/gi";
-import { FiPackage } from "react-icons/fi";
+import { FiFacebook, FiInstagram, FiPackage } from "react-icons/fi";
 import { GoPlus } from "react-icons/go";
+import { Icon } from "@chakra-ui/react";
 
 const Images = [
   { title: "Res", path: "/img/Res.jpg", icon: GiCow },
@@ -86,7 +87,42 @@ export default function Home() {
           </Grid>
         </Box>
 
-        <Box w="100%" h="128px" bg="#E20613" placeSelf="flex-end"></Box>
+        <Grid
+          w="100%"
+          minH="128px"
+          bg="#E20613"
+          placeSelf="flex-end"
+          templateColumns={{ base: "1fr", lg: "1fr 1fr" }}
+          placeItems="center"
+          gap="1rem"
+          color="white"
+          p="1rem"
+        >
+          <HStack gridGap="1rem">
+            <Icon as={FiFacebook} boxSize={8} />
+            <Text
+              as="a"
+              href="https://www.facebook.com/carniceriagonzalezmzo/"
+              target="_blank"
+              fontSize="1.5rem"
+              fontWeight="medium"
+            >
+              Facebook
+            </Text>
+          </HStack>
+          <HStack gridGap="1rem">
+            <Icon as={FiInstagram} boxSize={8} />
+            <Text
+              as="a"
+              href="https://www.instagram.com/carniceria.gonzalez/"
+              target="_blank"
+              fontSize="1.5rem"
+              fontWeight="medium"
+            >
+              Instagram
+            </Text>
+          </HStack>
+        </Grid>
       </Flex>
     </>
   );
