@@ -69,11 +69,16 @@ export default function Home() {
         <Box flex="1 0 auto">
           <Grid
             w="100%"
-            templateColumns={{ base: "1fr 1fr", lg: "repeat(5, 1fr)" }}
+            templateColumns={{
+              base: "1fr 1fr",
+              sm: "repeat(5, 1fr)",
+              lg: "repeat(5, 1fr)",
+            }}
             gap="1rem"
             placeItems="center"
             maxW="90%"
             m="0 auto"
+            overflow="auto"
           >
             {Images.map(({ title, path, icon }, index) => (
               <ListItem

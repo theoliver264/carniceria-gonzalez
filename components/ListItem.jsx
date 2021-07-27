@@ -26,7 +26,7 @@ export default function ListItem({ title, path, index, icon }) {
     <>
       <Grid
         onClick={onOpen}
-        boxSize={{ base: "150px", lg: "300px" }}
+        boxSize={{ base: "150px", sm: "200px", lg: "300px" }}
         p="1rem"
         boxShadow="lg"
         templateRows="auto 1fr"
