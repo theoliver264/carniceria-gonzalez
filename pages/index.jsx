@@ -1,29 +1,28 @@
 import { Image } from "@chakra-ui/image";
-import { HStack } from "@chakra-ui/layout";
-import { Divider } from "@chakra-ui/layout";
-import { Text } from "@chakra-ui/layout";
-import { Grid } from "@chakra-ui/layout";
-import { VStack } from "@chakra-ui/layout";
-import { Box, Flex } from "@chakra-ui/layout";
-import Head from "next/head";
-import ListItem from "../components/ListItem";
-import {
-  GiCow,
-  GiPig,
-  GiWaterBottle,
-  GiSausage,
-  GiMilkCarton,
-  GiCorn,
-  GiChicken,
-  GiTacos,
-} from "react-icons/gi";
-import { FiFacebook, FiInstagram, FiPackage } from "react-icons/fi";
-import { GoPlus } from "react-icons/go";
+import { Box, Flex, Grid, HStack, Text } from "@chakra-ui/layout";
 import { Icon } from "@chakra-ui/react";
+import Head from "next/head";
+import { FiFacebook, FiInstagram, FiPackage } from "react-icons/fi";
+import {
+  GiBarbecue,
+  GiChicken,
+  GiCorn,
+  GiCow,
+  GiMilkCarton,
+  GiPig,
+  GiSausage,
+  GiSheep,
+  GiTacos,
+  GiWaterBottle,
+} from "react-icons/gi";
+import { GoPlus } from "react-icons/go";
+import ListItem from "../components/ListItem";
 
 const Images = [
-  { title: "Res", path: "/img/Res.jpg", icon: GiCow },
+  { title: "Asar", path: "/img/Asar.jpg", icon: GiBarbecue },
   { title: "Bebidas", path: "/img/Bebidas.jpg", icon: GiWaterBottle },
+  { title: "Borrego", path: "/img/Borrego.jpg", icon: GiSheep },
+  { title: "Res", path: "/img/Res.jpg", icon: GiCow },
   { title: "Carnitas", path: "/img/Carnitas.jpg", icon: GiTacos },
   { title: "Cerdo", path: "/img/Cerdo.jpg", icon: GiPig },
   { title: "Embutidos", path: "/img/Embutidos.jpg", icon: GiSausage },
@@ -71,8 +70,8 @@ export default function Home() {
             w="100%"
             templateColumns={{
               base: "1fr 1fr",
-              sm: "repeat(5, 1fr)",
-              lg: "repeat(5, 1fr)",
+              sm: "repeat(4, 1fr)",
+              lg: "repeat(4, 1fr)",
             }}
             gap="1rem"
             placeItems="center"
