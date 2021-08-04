@@ -21,7 +21,7 @@ import ListItem from "../components/ListItem";
 const Images = [
   { title: "Asar", path: "/img/Asar.jpg", icon: GiBarbecue },
   { title: "Bebidas", path: "/img/Bebidas.jpg", icon: GiWaterBottle },
-  { title: "Borrego", path: "/img/Borrego.jpg", icon: GiSheep },
+  //{ title: "Borrego", path: "/img/Borrego.jpg", icon: GiSheep },
   { title: "Res", path: "/img/Res.jpg", icon: GiCow },
   { title: "Carnitas", path: "/img/Carnitas.jpg", icon: GiTacos },
   { title: "Cerdo", path: "/img/Cerdo.jpg", icon: GiPig },
